@@ -1,5 +1,7 @@
 # -*- coding:utf-8 -*-
 
+"""一个简单的内容处理器，解析xml文件并处理文档标题"""
+
 from xml.sax.handler import ContentHandler
 from xml.sax import parse
 
