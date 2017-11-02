@@ -23,7 +23,7 @@ server = NNTP(servername, readermode=True)
 
 response, count, first, last, name = server.group(groupname)
 resp, subs = server.xhdr('subject', (str(first) + '-' + str(last)))
-for sub in subs[:10]:  # print the last ten subjects
+for sub in subs[:5]:  # print the last ten subjects
     id = sub[0]
     head = server.head(id)[3]
     for line in head:
