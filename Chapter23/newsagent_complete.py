@@ -109,33 +109,34 @@ class HTMLDestination:
         self.filename = filename
 
     def receiveItems(self, items):
-        out = open(self.filename, 'w')
-        print >> out, """
-        <html>
-        <head>
-        <title>Some Interesting News</title>
-        </head>
-        <body>
-        <h1>Some Interesting News</h1>
-        """
+        # out = open(self.filename, 'w')
+        with open('news.html', 'w') as out:
+            print >> out, """
+            <html>
+            <head>
+            <title>Some Interesting News</title>
+            </head>
+            <body>
+            <h1>Some Interesting News</h1>
+            """
 
-        print >> out, '<ul>'
-        id = 0
-        for item in items:
-            id += 1
-            print >> out, ' <li><a href="#%i">%s</a></li>' % (id, item.title)
-        print >> out, '</ul>'
+            print >> out, '<ul>'
+            id = 0
+            for item in items:
+                id += 1
+                print >> out, ' <li><a href="#%i">%s</a></li>' % (id, item.title)
+            print >> out, '</ul>'
 
-        id = 0
-        for item in items:
-            id += 1
-            print >> out, '<h2><a name="%i">%s</a></h2>' % (id, item.title)
-            print >> out, '<pre>%s</pre>' % item.body
+            id = 0
+            for item in items:
+                id += 1
+                print >> out, '<h2><a name="%i">%s</a></h2>' % (id, item.title)
+                print >> out, '<pre>%s</pre>' % item.body
 
-        print >> out, """
-        </body>
-        </html>
-        """
+            print >> out, """
+            </body>
+            </html>
+            """
 
 def runDefaultSetup():
     """
